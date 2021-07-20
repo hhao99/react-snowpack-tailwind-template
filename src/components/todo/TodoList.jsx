@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Todo from './Todo'
-export default ({list,onDelete})=> {
+import { TodosContext } from './TodoContext'
+
+export default ({list,dispatch})=> {
+    const {state} = useContext(TodosContext)
     return (
-        <div id='todolist'>
+        <div className=''>
             {
-                list.length === 0 ? <h3>No tasks!</h3> :
-                list.map( (todo,index)=> <Todo key={index} todo={todo} index={index} onDelete={onDelete}/>)
+                state.list.length === 0 ? <h3>No tasks!</h3> :
+                state.list.map( (todo,index)=> <Todo key={index} todo={todo} index={index} />)
             }
         </div>
     )

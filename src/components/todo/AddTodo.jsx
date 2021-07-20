@@ -1,11 +1,13 @@
-import React , {useState } from 'react'
-
-export default ({onAdd})=> {
+import React , { useContext, useState } from 'react'
+import { TodosContext } from './TodoContext'
+export default ()=> {
     const [task,setTask] = useState('')
+    const { dispatch } = useContext(TodosContext)
     
     const handleKeyDown = (e) => {
         if(e.key === "Enter") {
-            onAdd(task)
+            dispatch({type:'ADD',payload: task})
+            setTask('')
         }
     }
     return (

@@ -1,9 +1,12 @@
-import React from 'react'
-
-export default ({todo,index,onDelete})=> {
+import React,{ useContext } from 'react'
+import { TodosContext } from './TodoContext'
+export default ({todo,index})=> {
+    
+    const { dispatch } = useContext(TodosContext)
 
     const handleDelete = (index)=> {
-        onDelete(index)
+        console.log(dispatch)
+        dispatch({type:'DELETE', payload: index})
     }
     return (
         <div id='todo' className='px-4'>
