@@ -1,0 +1,4 @@
+
+#root {
+    @apply md:container md:mx-auto px-4 text-black bg-gray-200;
+}
